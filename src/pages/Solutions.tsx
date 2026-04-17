@@ -3,8 +3,6 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import residentialImg from "@/assets/sol-residential.jpg";
 import commercialImg from "@/assets/sol-commercial.jpg";
-import haulerImg from "@/assets/sol-ev-hauler.jpg";
-import muverImg from "@/assets/sol-ev-muver.jpg";
 
 const sysCards = [
   { size: "3 kW System", subtitle: "Perfect for Small Families", points: ["Runs Lights, Fans, TV, Fridge", "Subsidy: ₹94,800", "~360 Units/Month"], popular: false },
@@ -101,42 +99,10 @@ const Solutions = () => (
         </section>
 
         {/* Verticals */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {verticals.map((v) => (
             <div key={v} className="bg-card rounded-full py-4 px-6 text-center font-headline font-bold text-on-surface shadow-sm hover:shadow-md transition cursor-pointer">
               {v}
-            </div>
-          ))}
-        </div>
-
-        {/* EV Mobility */}
-        <section id="ev" className="text-center mb-12 scroll-mt-32">
-          <h2 className="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter mb-3">Electric Mobility Solutions</h2>
-          <p className="text-muted-foreground text-lg">Transporting Kashmir's Future, Silently & Efficiently.</p>
-        </section>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[
-            { tag: "Best Seller", tagColor: "bg-on-surface text-surface", img: haulerImg, name: "D2D HaulER", desc: "Heavy Duty Loader for last-mile delivery.", points: ["500kg Load Capacity", "High Torque Motor for Hilly Terrain", "Low Maintenance Li-ion Battery"], cta: "Enquire Now" },
-            { tag: "Passenger", tagColor: "bg-primary-container text-primary-container-foreground", img: muverImg, name: "D2D MuvER", desc: "Comfortable E-Rickshaw for public transport.", points: ["Seating for 4 Passengers", "Weather-proof Cabin Options", "100km+ Range per Charge"], cta: "Book Test Ride" },
-          ].map((p) => (
-            <div key={p.name} className="bg-card rounded-3xl overflow-hidden shadow-sm">
-              <div className="relative aspect-[16/10]">
-                <img src={p.img} alt={p.name} className="w-full h-full object-cover" loading="lazy" width={1024} height={640} />
-                <span className={`absolute top-4 left-4 ${p.tagColor} text-xs font-label font-bold uppercase tracking-widest px-3 py-1 rounded-full`}>
-                  {p.tag}
-                </span>
-              </div>
-              <div className="p-7">
-                <h3 className="text-2xl font-headline font-bold mb-2">{p.name}</h3>
-                <p className="text-muted-foreground mb-5">{p.desc}</p>
-                <ul className="space-y-2 mb-7 text-sm text-on-surface">
-                  {p.points.map((pt) => <li key={pt}>• {pt}</li>)}
-                </ul>
-                <Link to="/contact" className="block w-full bg-on-surface text-surface text-center py-3 rounded-full font-headline font-bold hover:opacity-90 transition">
-                  {p.cta}
-                </Link>
-              </div>
             </div>
           ))}
         </div>
