@@ -108,79 +108,122 @@ const Index = () => {
         {/* Savings Calculator */}
         <section className="py-32 bg-surface">
           <div className="max-w-7xl mx-auto px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-              <div>
-                <h2 className="font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-8">The Savings Architecture</h2>
-                <p className="text-xl text-secondary mb-12 leading-relaxed">
-                  Configure your solar ecosystem. Adjust the parameters below to see how the radiant authority can transform your monthly overhead into long-term equity.
-                </p>
-                <div className="space-y-10 bg-surface-container-low p-8 rounded-3xl">
-                  <div className="space-y-4">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
+                Calculate Your Solar Savings in 60 Seconds
+              </h2>
+              <p className="text-secondary text-lg">Adjust the slider to match your monthly electricity bill</p>
+            </div>
+
+            <div className="bg-card rounded-[2rem] p-6 md:p-12 shadow-sm border border-outline-variant/20">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                {/* Inputs */}
+                <div className="space-y-10">
+                  <div className="space-y-3">
                     <div className="flex justify-between items-center">
                       <label className="font-headline font-bold text-on-surface">Monthly Bill Amount</label>
-                      <span className="text-primary font-black text-xl">${billAmount}</span>
+                      <span className="text-primary font-black text-xl">₹{billAmount.toLocaleString()}</span>
                     </div>
                     <input
                       type="range"
-                      min={50}
-                      max={1000}
+                      min={1000}
+                      max={5000}
+                      step={100}
                       value={billAmount}
                       onChange={(e) => setBillAmount(Number(e.target.value))}
-                      className="w-full h-2 bg-outline-variant rounded-lg appearance-none cursor-pointer accent-primary"
+                      className="w-full h-1.5 bg-outline-variant rounded-lg appearance-none cursor-pointer accent-primary"
                     />
                     <div className="flex justify-between text-xs text-secondary font-label">
-                      <span>$50</span>
-                      <span>$1000</span>
+                      <span>₹1k</span>
+                      <span>₹5k</span>
                     </div>
                   </div>
-                  <div className="space-y-4">
+
+                  <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <label className="font-headline font-bold text-on-surface">System Size (kW)</label>
+                      <label className="font-headline font-bold text-on-surface">Recommended System Size</label>
                       <span className="text-primary font-black text-xl">{systemSize} kW</span>
                     </div>
-                    <input
-                      type="range"
-                      min={2}
-                      max={20}
-                      step={0.5}
-                      value={systemSize}
-                      onChange={(e) => setSystemSize(Number(e.target.value))}
-                      className="w-full h-2 bg-outline-variant rounded-lg appearance-none cursor-pointer accent-primary"
-                    />
+                    <div className="relative w-full h-1.5 bg-outline-variant rounded-lg">
+                      <div
+                        className="absolute top-1/2 -translate-y-1/2 h-3.5 w-3.5 rounded-full bg-card border-2 border-primary shadow"
+                        style={{ left: `calc(${((systemSize - 1) / 9) * 100}% - 7px)` }}
+                      />
+                    </div>
                     <div className="flex justify-between text-xs text-secondary font-label">
-                      <span>2 kW</span>
-                      <span>20 kW</span>
+                      <span>1 kW</span>
+                      <span>10 kW</span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="font-headline font-bold text-on-surface text-sm">Connection Type</label>
+                      <select
+                        value={connectionType}
+                        onChange={(e) => setConnectionType(e.target.value)}
+                        className="w-full bg-card border border-outline-variant/40 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/30"
+                      >
+                        <option>Residential</option>
+                        <option>Commercial</option>
+                        <option>Industrial</option>
+                      </select>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="font-headline font-bold text-on-surface text-sm">Loan Tenure</label>
+                      <select
+                        value={loanTenure}
+                        onChange={(e) => setLoanTenure(Number(e.target.value))}
+                        className="w-full bg-card border border-outline-variant/40 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/30"
+                      >
+                        <option value={3}>3 Years</option>
+                        <option value={5}>5 Years</option>
+                        <option value={7}>7 Years</option>
+                        <option value={10}>10 Years</option>
+                      </select>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div>
-                <div className="bg-inverse-surface text-inverse-on-surface p-12 rounded-[2.5rem] shadow-2xl">
-                  <h4 className="font-headline text-lg font-bold mb-2 opacity-70">Estimated Annual Savings</h4>
-                  <div className="text-7xl font-headline font-black text-primary-container mb-8">${annualSavings.toLocaleString()}</div>
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center">
-                        <span className="material-symbols-outlined text-tertiary-foreground">eco</span>
-                      </div>
-                      <div>
-                        <div className="font-bold">Carbon Offset</div>
-                        <div className="text-sm opacity-70">12.4 Metric Tons/Year</div>
-                      </div>
+
+                {/* Results panel */}
+                <div className="bg-inverse-surface text-inverse-on-surface p-8 md:p-10 rounded-[1.75rem]">
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-8">
+                    <div>
+                      <p className="text-xs font-label font-bold uppercase tracking-widest opacity-60 mb-2">Rec. System Size</p>
+                      <p className="text-3xl font-headline font-black">{systemSize} kW</p>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                        <span className="material-symbols-outlined text-primary-foreground">schedule</span>
-                      </div>
-                      <div>
-                        <div className="font-bold">Payback Period</div>
-                        <div className="text-sm opacity-70">Estimated 4.2 Years</div>
-                      </div>
+                    <div>
+                      <p className="text-xs font-label font-bold uppercase tracking-widest opacity-60 mb-2">Est. Monthly Savings</p>
+                      <p className="text-3xl font-headline font-black text-tertiary-container">₹{monthlySavings.toLocaleString()}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-label font-bold uppercase tracking-widest opacity-60 mb-2">Est. Net Cost</p>
+                      <p className="text-3xl font-headline font-black text-primary-container">₹{netCost.toLocaleString()}</p>
+                      <span className="inline-block mt-2 text-xs px-2 py-1 rounded-full bg-tertiary/30 text-tertiary-container">
+                        Includes ₹{subsidy.toLocaleString()} Subsidy
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-xs font-label font-bold uppercase tracking-widest opacity-60 mb-2">Est. Monthly EMI</p>
+                      <p className="text-3xl font-headline font-black">₹{emi.toLocaleString()}</p>
+                      <p className="text-xs opacity-60 mt-1">@ 6.4% interest / {loanTenure}yrs</p>
+                    </div>
+                    <div className="col-span-2">
+                      <p className="text-xs font-label font-bold uppercase tracking-widest opacity-60 mb-2">Est. Down Payment</p>
+                      <p className="text-3xl font-headline font-black">₹{downPayment.toLocaleString()}</p>
                     </div>
                   </div>
-                  <button className="w-full mt-12 bg-primary-container text-primary-container-foreground py-5 rounded-full font-headline font-bold text-lg hover:opacity-90 transition-all">
-                    Get Detailed Report
-                  </button>
+                  <div className="border-t border-inverse-on-surface/10 mt-8 pt-6 text-center">
+                    <p className="text-xs opacity-60 italic mb-5">
+                      *EMI based on selected tenure & applicable interest rates. Actual terms may vary.
+                    </p>
+                    <button
+                      onClick={() => navigate("/contact")}
+                      className="w-full bg-primary text-primary-foreground py-4 rounded-full font-headline font-bold text-base hover:opacity-90 transition-all"
+                    >
+                      Get Detailed Quote Now
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -198,10 +241,11 @@ const Index = () => {
                 { name: "Samuel Chen", role: "Tech Executive", quote: "What impressed me most was the transparent communication. They didn't just sell me panels; they engineered a custom solution for my family's energy needs." },
               ].map((t, i) => (
                 <div key={i} className="bg-card p-8 rounded-3xl shadow-sm">
-                  <div className="flex gap-1 mb-6 text-primary">
+                  <div className="flex items-center gap-1 mb-6">
                     {[...Array(5)].map((_, j) => (
-                      <span key={j} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <span key={j} className="material-symbols-outlined text-primary text-sm" style={{ fontSize: "16px", fontVariationSettings: "'FILL' 1" }}>star</span>
                     ))}
+                    <span className="ml-2 text-xs font-label font-bold text-secondary">5.0</span>
                   </div>
                   <p className="text-lg italic leading-relaxed text-muted-foreground mb-8">"{t.quote}"</p>
                   <div className="flex items-center gap-4">
