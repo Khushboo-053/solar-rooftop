@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import residentialImg from "@/assets/sol-residential.jpg";
 import commercialImg from "@/assets/sol-commercial.jpg";
+import haulerImg from "@/assets/sol-ev-hauler.jpg";
+import muverImg from "@/assets/sol-ev-muver.jpg";
 
 const sysCards = [
   { size: "3 kW System", subtitle: "Perfect for Small Families", points: ["Runs Lights, Fans, TV, Fridge", "Subsidy: ₹94,800", "~360 Units/Month"], popular: false },
@@ -45,7 +47,7 @@ const Solutions = () => (
               ))}
             </ul>
             <div className="flex flex-wrap gap-3">
-              <Link to="/" className="bg-primary-container text-primary-container-foreground px-6 py-3 rounded-full font-headline font-bold hover:opacity-90 transition">
+              <Link to="/calculator" className="bg-primary-container text-primary-container-foreground px-6 py-3 rounded-full font-headline font-bold hover:opacity-90 transition">
                 Calculate Savings
               </Link>
               <Link to="/subsidies" className="bg-card border border-border text-on-surface px-6 py-3 rounded-full font-headline font-bold hover:bg-surface-container transition">
@@ -99,13 +101,72 @@ const Solutions = () => (
         </section>
 
         {/* Verticals */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
           {verticals.map((v) => (
             <div key={v} className="bg-card rounded-full py-4 px-6 text-center font-headline font-bold text-on-surface shadow-sm hover:shadow-md transition cursor-pointer">
               {v}
             </div>
           ))}
         </div>
+
+        {/* EV Mobility */}
+        <section id="ev" className="scroll-mt-32">
+          <header className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-primary font-label text-xs font-bold uppercase tracking-widest mb-3 block">Electric Mobility</span>
+            <h2 className="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter">
+              Electric Mobility Solutions
+            </h2>
+            <p className="text-muted-foreground mt-4 text-lg">
+              Transporting Kashmir's Future, Silently & Efficiently.
+            </p>
+          </header>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* HaulER */}
+            <div className="bg-card rounded-[2rem] overflow-hidden shadow-sm">
+              <div className="aspect-[4/3] relative">
+                <img src={haulerImg} alt="D2D HaulER electric loader" className="w-full h-full object-cover" loading="lazy" width={1024} height={768} />
+                <span className="absolute top-4 left-4 bg-primary text-primary-foreground text-[10px] font-label font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+                  Best Seller
+                </span>
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-headline font-extrabold mb-2">D2D HaulER</h3>
+                <p className="text-muted-foreground mb-5">Heavy Duty Loader for last-mile delivery.</p>
+                <ul className="space-y-2 text-sm text-on-surface mb-6">
+                  <li>• 500kg Load Capacity</li>
+                  <li>• High Torque Motor for Hilly Terrain</li>
+                  <li>• Low Maintenance Li-ion Battery</li>
+                </ul>
+                <Link to="/contact" className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-full font-headline font-bold hover:opacity-90 transition">
+                  Enquire Now
+                </Link>
+              </div>
+            </div>
+
+            {/* MuvER */}
+            <div className="bg-card rounded-[2rem] overflow-hidden shadow-sm">
+              <div className="aspect-[4/3] relative">
+                <img src={muverImg} alt="D2D MuvER electric rickshaw" className="w-full h-full object-cover" loading="lazy" width={1024} height={768} />
+                <span className="absolute top-4 left-4 bg-tertiary text-tertiary-foreground text-[10px] font-label font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+                  Passenger
+                </span>
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-headline font-extrabold mb-2">D2D MuvER</h3>
+                <p className="text-muted-foreground mb-5">Comfortable E-Rickshaw for public transport.</p>
+                <ul className="space-y-2 text-sm text-on-surface mb-6">
+                  <li>• Seating for 4 Passengers</li>
+                  <li>• Weather-proof Cabin Options</li>
+                  <li>• 100km+ Range per Charge</li>
+                </ul>
+                <Link to="/contact" className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-full font-headline font-bold hover:opacity-90 transition">
+                  Book Test Ride
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
     <Footer />

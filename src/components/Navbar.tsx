@@ -14,25 +14,25 @@ const navLinks = [
 
 const solutionsItems = [
   {
-    label: "Residential",
+    label: "Residential Solar",
     path: "/solutions#residential",
     icon: "home",
     description: "Save up to 80% on home electricity.",
     iconBg: "bg-tertiary-container/30 text-tertiary",
   },
   {
-    label: "Commercial",
+    label: "Commercial Solar",
     path: "/solutions#commercial",
     icon: "apartment",
     description: "High-ROI solar for business.",
-    iconBg: "bg-blue-100 text-blue-600",
+    iconBg: "bg-primary-container/30 text-primary",
   },
   {
     label: "EV Mobility",
     path: "/solutions#ev",
     icon: "electric_bolt",
-    description: "Future-ready electric transport.",
-    iconBg: "bg-primary-container/30 text-primary",
+    description: "HaulER & MuvER electric vehicles.",
+    iconBg: "bg-tertiary-container/40 text-tertiary",
   },
 ];
 
