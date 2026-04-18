@@ -1,30 +1,12 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SavingsCalculator from "@/components/SavingsCalculator";
 import heroSolar from "@/assets/hero-solar.jpg";
 import ctaBg from "@/assets/cta-bg.jpg";
 
 const Index = () => {
   const navigate = useNavigate();
-  const [billAmount, setBillAmount] = useState(1500);
-  const [connectionType, setConnectionType] = useState("Residential");
-  const [loanTenure, setLoanTenure] = useState(7);
-
-  // Auto-derive system size from monthly bill (1 kW per ~₹500 of bill, clamped 1–10 kW)
-  const systemSize = Math.max(1, Math.min(10, Math.round(billAmount / 500)));
-  const monthlySavings = billAmount; // ~100% offset estimate
-  const subsidy = systemSize <= 2 ? 30000 : systemSize === 3 ? 78000 : 78000 + (systemSize - 3) * 5400;
-  const grossCost = systemSize * 55000;
-  const netCost = Math.max(0, grossCost - subsidy);
-  const downPayment = Math.round(netCost * 0.12);
-  const principal = netCost - downPayment;
-  const monthlyRate = 0.064 / 12;
-  const months = loanTenure * 12;
-  const emi = Math.round(
-    (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) /
-      (Math.pow(1 + monthlyRate, months) - 1)
-  );
 
   return (
     <div className="bg-surface text-on-surface font-body">
