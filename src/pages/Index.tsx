@@ -44,10 +44,16 @@ const Index = () => {
                 Transition to high-efficiency solar energy with Solaris. Our expert installation team ensures your home reaches its peak radiant potential.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-headline font-bold text-lg hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+                <button
+                  onClick={() => navigate("/subsidies")}
+                  className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-headline font-bold text-lg hover:opacity-90 transition-all shadow-lg shadow-primary/20"
+                >
                   Check My Subsidy Eligibility
                 </button>
-                <button className="bg-surface-container-highest text-on-surface px-8 py-4 rounded-full font-headline font-bold text-lg hover:bg-surface-container-high transition-all">
+                <button
+                  onClick={() => document.getElementById("calculator")?.scrollIntoView({ behavior: "smooth" })}
+                  className="bg-surface-container-highest text-on-surface px-8 py-4 rounded-full font-headline font-bold text-lg hover:bg-surface-container-high transition-all"
+                >
                   Calculate Savings
                 </button>
               </div>
@@ -106,7 +112,7 @@ const Index = () => {
         </section>
 
         {/* Savings Calculator */}
-        <section className="py-32 bg-surface">
+        <section id="calculator" className="py-32 bg-surface scroll-mt-24">
           <div className="max-w-7xl mx-auto px-8">
             <div className="text-center max-w-2xl mx-auto mb-14">
               <h2 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
@@ -273,7 +279,10 @@ const Index = () => {
                 <p className="text-primary-foreground/80 text-lg mb-12 max-w-2xl mx-auto">
                   Join over 12,000 households engineering a cleaner, cheaper future with Solaris Radiant Authority.
                 </p>
-                <button className="bg-card text-primary px-12 py-6 rounded-full font-headline font-black text-xl hover:bg-primary-container hover:text-primary-container-foreground transition-all active:scale-95 shadow-2xl">
+                <button
+                  onClick={() => navigate("/contact")}
+                  className="bg-card text-primary px-12 py-6 rounded-full font-headline font-black text-xl hover:bg-primary-container hover:text-primary-container-foreground transition-all active:scale-95 shadow-2xl"
+                >
                   Get Started Today
                 </button>
               </div>

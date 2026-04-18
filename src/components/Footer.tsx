@@ -12,17 +12,19 @@ const Footer = () => (
       <div>
         <h4 className="font-headline font-bold text-on-surface mb-6">Navigation</h4>
         <ul className="space-y-4 font-label text-sm">
+          <li><Link to="/solutions" className="text-secondary hover:text-primary transition-colors">Solutions</Link></li>
           <li><Link to="/services" className="text-secondary hover:text-primary transition-colors">Services</Link></li>
           <li><Link to="/subsidies" className="text-secondary hover:text-primary transition-colors">Subsidies</Link></li>
+          <li><Link to="/gallery" className="text-secondary hover:text-primary transition-colors">Gallery</Link></li>
           <li><Link to="/contact" className="text-secondary hover:text-primary transition-colors">Contact</Link></li>
         </ul>
       </div>
       <div>
         <h4 className="font-headline font-bold text-on-surface mb-6">Resources</h4>
         <ul className="space-y-4 font-label text-sm">
-          <li><a href="#" className="text-secondary hover:text-primary transition-colors">Savings Calculator</a></li>
-          <li><a href="#" className="text-secondary hover:text-primary transition-colors">Installation Guide</a></li>
-          <li><a href="#" className="text-secondary hover:text-primary transition-colors">Maintenance</a></li>
+          <li><Link to="/#calculator" className="text-secondary hover:text-primary transition-colors">Savings Calculator</Link></li>
+          <li><Link to="/about" className="text-secondary hover:text-primary transition-colors">About Us</Link></li>
+          <li><Link to="/insights" className="text-secondary hover:text-primary transition-colors">Insights</Link></li>
         </ul>
       </div>
       <div>
