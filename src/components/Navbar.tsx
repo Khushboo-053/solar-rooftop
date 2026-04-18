@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Solutions", path: "/solutions", hasDropdown: true },
   { label: "Subsidies", path: "/subsidies" },
   { label: "About", path: "/about" },
+  { label: "Gallery", path: "/gallery" },
   { label: "Insights", path: "/insights" },
   { label: "Contact", path: "/contact" },
 ];
