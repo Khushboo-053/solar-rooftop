@@ -15,10 +15,10 @@ const projects = [
   { src: g3, title: "Hotel Rooftop, Srinagar", tag: "Commercial", kw: "50 kW" },
   { src: g4, title: "Inverter & Battery Setup", tag: "Components", kw: "—" },
   { src: g5, title: "Snow-Resilient Array, Gulmarg", tag: "Residential", kw: "8 kW" },
-  { src: g6, title: "Electric Cargo Mobility", tag: "EV Mobility", kw: "—" },
+  { src: g6, title: "Commercial Rooftop, Jammu", tag: "Commercial", kw: "25 kW" },
 ];
 
-const filters = ["All", "Residential", "Commercial", "Components", "EV Mobility"];
+const filters = ["All", "Residential", "Commercial", "Components"];
 
 const Gallery = () => {
   const [active, setActive] = useState("All");
