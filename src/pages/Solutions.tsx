@@ -3,8 +3,6 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import residentialImg from "@/assets/sol-residential.jpg";
 import commercialImg from "@/assets/sol-commercial.jpg";
-import haulerImg from "@/assets/sol-ev-hauler.jpg";
-import muverImg from "@/assets/sol-ev-muver.jpg";
 
 const sysCards = [
   { size: "3 kW System", subtitle: "Perfect for Small Families", points: ["Runs Lights, Fans, TV, Fridge", "Subsidy: ₹94,800", "~360 Units/Month"], popular: false },
