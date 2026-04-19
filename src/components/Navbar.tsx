@@ -27,13 +27,6 @@ const solutionsItems = [
     description: "High-ROI solar for business.",
     iconBg: "bg-primary-container/30 text-primary",
   },
-  {
-    label: "EV Mobility",
-    path: "/solutions#ev",
-    icon: "electric_bolt",
-    description: "HaulER & MuvER electric vehicles.",
-    iconBg: "bg-tertiary-container/40 text-tertiary",
-  },
 ];
 
 const Navbar = () => {
@@ -70,7 +63,7 @@ const Navbar = () => {
                 </button>
                 {solutionsOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
-                    <div className="bg-card rounded-3xl shadow-2xl border border-border/40 p-6 w-[640px] grid grid-cols-3 gap-4">
+                    <div className="bg-card rounded-3xl shadow-2xl border border-border/40 p-6 w-[480px] grid grid-cols-2 gap-4">
                       {solutionsItems.map((item) => (
                         <Link
                           key={item.label}
