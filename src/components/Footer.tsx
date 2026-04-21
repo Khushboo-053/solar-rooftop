@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import karsaazLogo from "@/assets/karsaaz-logo.png";
 
 const Footer = () => (
   <footer className="w-full py-16 px-8 mt-24 bg-surface-dim">
     <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
       <div>
-        <div className="text-xl font-black text-on-surface font-headline tracking-tighter mb-6">KARSAAZ</div>
+        <img src={karsaazLogo} alt="Karsaaz" className="h-10 w-auto mb-6" />
         <p className="text-secondary text-sm leading-relaxed font-body">
           Leading the transition to high-efficiency solar infrastructure across Jammu &amp; Kashmir.
         </p>

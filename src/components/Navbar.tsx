@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import karsaazLogo from "@/assets/karsaaz-logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -36,8 +37,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm">
       <div className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
-        <Link to="/" className="text-2xl font-black text-primary tracking-tighter font-headline">
-          KARSAAZ
+        <Link to="/" className="flex items-center" aria-label="Karsaaz home">
+          <img src={karsaazLogo} alt="Karsaaz" className="h-10 w-auto" />
         </Link>
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) =>
