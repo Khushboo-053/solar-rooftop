@@ -103,8 +103,6 @@ const SavingsCalculator = ({ embedded = false }: Props) => {
                 className="w-full bg-card border border-outline-variant/40 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/30"
               >
                 <option>Residential</option>
-                <option>Commercial</option>
-                <option>Industrial</option>
               </select>
             </div>
             <div className="space-y-2">
@@ -117,7 +115,6 @@ const SavingsCalculator = ({ embedded = false }: Props) => {
                 <option value={3}>3 Years</option>
                 <option value={5}>5 Years</option>
                 <option value={7}>7 Years</option>
-                <option value={10}>10 Years</option>
               </select>
             </div>
           </div>

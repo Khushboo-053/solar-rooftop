@@ -7,8 +7,7 @@ const navLinks = [
   { label: "Solutions", path: "/solutions", hasDropdown: true },
   { label: "Subsidies", path: "/subsidies" },
   { label: "About", path: "/about" },
-  { label: "Gallery", path: "/gallery" },
-  { label: "Insights", path: "/insights" },
+  { label: "Blogs", path: "/blogs" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -38,7 +37,7 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm">
       <div className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
         <Link to="/" className="text-2xl font-black text-primary tracking-tighter font-headline">
-          SOLARIS
+          KARSAAZ
         </Link>
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) =>

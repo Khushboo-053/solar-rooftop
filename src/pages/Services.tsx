@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import rooftopSolar from "@/assets/rooftop-solar.jpg";
@@ -36,9 +37,9 @@ const Services = () => (
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Tailored for both residential dwellings and commercial complexes. Our rooftop systems leverage ultra-efficient photovoltaic technology to transform your underutilized surface area into a high-performance power plant.
             </p>
-            <a href="#" className="inline-flex items-center text-primary font-bold hover:gap-3 transition-all">
+            <Link to="/contact" className="inline-flex items-center text-primary font-bold hover:gap-3 transition-all">
               Learn More <span className="material-symbols-outlined ml-2">arrow_forward</span>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -52,9 +53,9 @@ const Services = () => (
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               For expansive properties and utility-scale needs, our ground-mount solutions provide optimal tilt and tracking capabilities. Engineered with structural precision to withstand extreme weather while maximizing kilowatt output per acre.
             </p>
-            <a href="#" className="inline-flex items-center text-primary font-bold hover:gap-3 transition-all">
+            <Link to="/contact" className="inline-flex items-center text-primary font-bold hover:gap-3 transition-all">
               Learn More <span className="material-symbols-outlined ml-2">arrow_forward</span>
-            </a>
+            </Link>
           </div>
           <div className="lg:col-span-7 order-1 lg:order-2 rounded-3xl overflow-hidden aspect-[16/10] bg-surface-container-low group">
             <img src={groundMountSolar} alt="Ground-Mount Solar" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width={1280} height={800} />
@@ -82,9 +83,9 @@ const Services = () => (
                   <span className="font-medium text-on-surface">Annual Efficiency Audits</span>
                 </div>
               </div>
-              <a href="#" className="bg-on-surface text-surface py-4 px-8 rounded-full font-headline font-bold inline-block hover:opacity-90 transition-opacity">
+              <Link to="/contact" className="bg-on-surface text-surface py-4 px-8 rounded-full font-headline font-bold inline-block hover:opacity-90 transition-opacity">
                 Learn More
-              </a>
+              </Link>
             </div>
             <div className="relative lg:absolute lg:-right-20 lg:top-1/2 lg:-translate-y-1/2 w-full lg:w-1/2 h-[400px] lg:h-[80%] rounded-3xl overflow-hidden shadow-2xl">
               <img src={maintenanceSolar} alt="Maintenance" className="w-full h-full object-cover" loading="lazy" width={800} height={1000} />
@@ -102,11 +103,11 @@ const Services = () => (
               Ready to Engineer<br />Your Energy Future?
             </h2>
             <p className="text-primary-foreground/80 text-xl max-w-2xl mx-auto mb-12">
-              Join the thousands of homeowners and businesses making the transition to the radiant authority.
+              Join hundreds of homeowners and businesses across J&K making the transition with Karsaaz.
             </p>
-            <button className="bg-card text-primary px-12 py-5 rounded-full font-headline font-extrabold text-lg hover:scale-105 active:scale-95 transition-all shadow-xl">
+            <Link to="/contact" className="bg-card text-primary px-12 py-5 rounded-full font-headline font-extrabold text-lg hover:scale-105 active:scale-95 transition-all shadow-xl inline-block">
               Get a Free Consultation
-            </button>
+            </Link>
           </div>
         </div>
       </section>

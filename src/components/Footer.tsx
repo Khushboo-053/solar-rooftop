@@ -4,9 +4,9 @@ const Footer = () => (
   <footer className="w-full py-16 px-8 mt-24 bg-surface-dim">
     <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
       <div>
-        <div className="text-xl font-black text-on-surface font-headline tracking-tighter mb-6">SOLARIS</div>
+        <div className="text-xl font-black text-on-surface font-headline tracking-tighter mb-6">KARSAAZ</div>
         <p className="text-secondary text-sm leading-relaxed font-body">
-          Leading the transition to high-efficiency solar infrastructure for the modern residential landscape.
+          Leading the transition to high-efficiency solar infrastructure across Jammu &amp; Kashmir.
         </p>
       </div>
       <div>
@@ -15,16 +15,15 @@ const Footer = () => (
           <li><Link to="/solutions" className="text-secondary hover:text-primary transition-colors">Solutions</Link></li>
           <li><Link to="/services" className="text-secondary hover:text-primary transition-colors">Services</Link></li>
           <li><Link to="/subsidies" className="text-secondary hover:text-primary transition-colors">Subsidies</Link></li>
-          <li><Link to="/gallery" className="text-secondary hover:text-primary transition-colors">Gallery</Link></li>
           <li><Link to="/contact" className="text-secondary hover:text-primary transition-colors">Contact</Link></li>
         </ul>
       </div>
       <div>
         <h4 className="font-headline font-bold text-on-surface mb-6">Resources</h4>
         <ul className="space-y-4 font-label text-sm">
-          <li><Link to="/#calculator" className="text-secondary hover:text-primary transition-colors">Savings Calculator</Link></li>
+          <li><Link to="/calculator" className="text-secondary hover:text-primary transition-colors">Savings Calculator</Link></li>
           <li><Link to="/about" className="text-secondary hover:text-primary transition-colors">About Us</Link></li>
-          <li><Link to="/insights" className="text-secondary hover:text-primary transition-colors">Insights</Link></li>
+          <li><Link to="/blogs" className="text-secondary hover:text-primary transition-colors">Blogs</Link></li>
         </ul>
       </div>
       <div>
@@ -32,17 +31,17 @@ const Footer = () => (
         <ul className="space-y-4 font-label text-sm">
           <li className="flex items-center gap-2 text-secondary">
             <span className="material-symbols-outlined text-base">mail</span>
-            hello@solarisenergy.com
+            info@karsaaz.in
           </li>
           <li className="flex items-center gap-2 text-secondary">
             <span className="material-symbols-outlined text-base">phone</span>
-            +1 (800) SOLARIS
+            08069069661
           </li>
         </ul>
       </div>
     </div>
     <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-outline-variant/20 text-center text-xs text-secondary font-label">
-      © 2024 Solaris Radiant Authority. Engineering the future of energy.
+      © 2024 Karsaaz. Engineering the future of energy in J&amp;K.
     </div>
   </footer>
 );
