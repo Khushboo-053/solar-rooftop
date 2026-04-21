@@ -4,7 +4,7 @@ interface SeoProps {
   title: string;
   description: string;
   canonicalPath: string;
-  ogType?: string;
+  ogType?: "website" | "article";
 }
 
 const SITE_URL = "https://https-solarrooftop1.lovable.app";

@@ -10,6 +10,9 @@ import Subsidies from "./pages/Subsidies.tsx";
 import Contact from "./pages/Contact.tsx";
 import About from "./pages/About.tsx";
 import Blogs from "./pages/Blogs.tsx";
+import BlogPost from "./pages/BlogPost.tsx";
+import AdminLogin from "./pages/admin/Login.tsx";
+import AdminDashboard from "./pages/admin/Dashboard.tsx";
 import Solutions from "./pages/Solutions.tsx";
 import Calculator from "./pages/Calculator.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -31,6 +34,9 @@ const App = () => (
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/about" element={<About />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/:slug" element={<BlogPost />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
