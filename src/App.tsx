@@ -25,6 +25,7 @@ const App = () => (
         <ScrollToHash />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/best-solar-company-kashmir" element={<Index />} />
           <Route path="/services" element={<Services />} />
           <Route path="/subsidies" element={<Subsidies />} />
           <Route path="/solutions" element={<Solutions />} />
