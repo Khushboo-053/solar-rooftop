@@ -37,10 +37,14 @@ const Solutions = () => (
               Transform your roof into a power plant. Our residential systems (1–10kW) are designed to integrate seamlessly with Kashmiri architecture, featuring snow-shedding mounting structures.
             </p>
             <ul className="space-y-3 mb-8">
-              {["Save ₹1,000 - ₹10,000 per month on bills", "10+ Years Manufacturer Performance Warranty", "PM Surya Ghar Subsidy Support"].map((p) => (
-                <li key={p} className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-tertiary text-xl">check</span>
-                  <span className="text-on-surface">{p}</span>
+              {[
+                { text: "Save ₹1,000 - ₹10,000 per month on bills", color: "text-green-600" },
+                { text: "10+ Years Manufacturer Performance Warranty", color: "text-purple-600" },
+                { text: "PM Surya Ghar Subsidy Support", color: "text-tertiary" },
+              ].map((p) => (
+                <li key={p.text} className="flex items-center gap-3">
+                  <span className={`material-symbols-outlined ${p.color} text-xl`}>check</span>
+                  <span className="text-on-surface">{p.text}</span>
                 </li>
               ))}
             </ul>
