@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
 
 const blogs = [
   {
@@ -31,6 +32,11 @@ const blogs = [
 
 const Blogs = () => (
   <div className="bg-surface text-on-surface font-body">
+    <Seo
+      title="Karsaaz Blogs | Solar Insights, PM Surya Ghar Subsidy & Kashmir Guides"
+      description="Read Karsaaz blogs on rooftop solar in Kashmir, PM Surya Ghar subsidy guides, winter performance tips and engineering notes for J&K homeowners."
+      canonicalPath="/blogs"
+    />
     <Navbar />
     <main className="pt-32 pb-24 max-w-6xl mx-auto px-8">
       <header className="text-center mb-16">

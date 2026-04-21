@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SavingsCalculator from "@/components/SavingsCalculator";
+import Seo from "@/components/Seo";
 import heroSolar from "@/assets/hero-solar.jpg";
 import ctaBg from "@/assets/cta-bg.jpg";
 
@@ -10,6 +11,11 @@ const Index = () => {
 
   return (
     <div className="bg-surface text-on-surface font-body">
+      <Seo
+        title="Best Solar Company in Kashmir | Karsaaz Solar PM Surya Ghar Subsidy"
+        description="Looking for the best solar company in Kashmir? Karsaaz offers rooftop solar installation under PM Surya Ghar Scheme with subsidy up to ₹94,500. Get free consultation today."
+        canonicalPath="/best-solar-company-kashmir"
+      />
       <Navbar />
       <main className="pt-20">
         {/* Hero */}
