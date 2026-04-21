@@ -43,9 +43,9 @@ const Contact = () => {
   };
 
   const channels = [
-    { icon: "call", label: "For Phone Calls", value: "08069069661", bg: "bg-surface-container", iconColor: "text-on-surface" },
-    { icon: "chat", label: "WhatsApp Messages", value: "+91 9596333224", bg: "bg-tertiary-container/40", iconColor: "text-tertiary", cta: "Chat Now" },
-    { icon: "mail", label: "Email Us", value: "info@karsaaz.in", bg: "bg-surface-container", iconColor: "text-on-surface" },
+    { icon: "call", label: "For Phone Calls", value: "+91 6005280698", bg: "bg-surface-container", iconColor: "text-on-surface" },
+    { icon: "chat", label: "WhatsApp Messages", value: "+91 7006737200", bg: "bg-tertiary-container/40", iconColor: "text-tertiary", cta: "Chat Now" },
+    { icon: "mail", label: "Email Us", value: "karsaazsolar@gmail.com", bg: "bg-surface-container", iconColor: "text-on-surface" },
   ];
 
   return (
@@ -89,6 +89,15 @@ const Contact = () => {
                 )}
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="max-w-5xl mx-auto px-8 mb-16">
+          <div className="bg-card rounded-[2rem] p-8 md:p-10 shadow-sm">
+            <h3 className="font-headline font-extrabold text-2xl mb-3">Our Branches</h3>
+            <p className="text-secondary text-base leading-relaxed">
+              Pulwama | Sangrama | Sopore
+            </p>
           </div>
         </section>
 

@@ -32,11 +32,15 @@ const Footer = () => (
         <ul className="space-y-4 font-label text-sm">
           <li className="flex items-center gap-2 text-secondary">
             <span className="material-symbols-outlined text-base">mail</span>
-            info@karsaaz.in
+            karsaazsolar@gmail.com
           </li>
           <li className="flex items-center gap-2 text-secondary">
             <span className="material-symbols-outlined text-base">phone</span>
-            08069069661
+            +91 6005280698 / +91 7006737200
+          </li>
+          <li className="flex items-start gap-2 text-secondary">
+            <span className="material-symbols-outlined text-base mt-0.5">location_on</span>
+            <span>Branches: Pulwama | Sangrama | Sopore</span>
           </li>
         </ul>
       </div>
