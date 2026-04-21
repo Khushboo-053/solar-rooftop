@@ -27,9 +27,9 @@ const faqData = [
 const pricingTable = [
   { kw: "1 kW", price: "55,000", central: "33,000", ut: "3,000", total: "36,000", net: "19,000", popular: false },
   { kw: "2 kW", price: "1,10,000", central: "66,000", ut: "6,000", total: "72,000", net: "38,000", popular: false },
-  { kw: "3 kW", price: "1,59,500", central: "85,800", ut: "9,000", total: "94,800", net: "64,700", popular: true },
+  { kw: "3 kW", price: "1,59,500", central: "85,800", ut: "9,000", total: "94,800", net: "64,700", popular: false },
   { kw: "4 kW", price: "2,09,000", central: "85,800", ut: "9,000", total: "94,800", net: "1,14,200", popular: false },
-  { kw: "5 kW", price: "2,58,500", central: "85,800", ut: "9,000", total: "94,800", net: "1,63,700", popular: false },
+  { kw: "5 kW", price: "2,58,500", central: "85,800", ut: "9,000", total: "94,800", net: "1,63,700", popular: true },
   { kw: "6 kW", price: "3,08,000", central: "85,800", ut: "9,000", total: "94,800", net: "2,13,200", popular: false },
   { kw: "7 kW", price: "3,57,500", central: "85,800", ut: "9,000", total: "94,800", net: "2,62,700", popular: false },
   { kw: "8 kW", price: "4,07,000", central: "85,800", ut: "9,000", total: "94,800", net: "3,12,200", popular: false },
@@ -248,7 +248,7 @@ const Subsidies = () => {
                   Ready to start your journey to energy independence?
                 </h2>
                 <p className="text-primary-foreground/80 text-lg mb-12 max-w-2xl mx-auto">
-                  Join 100+ households across J&amp;K. We're your trusted partner for engineering excellence and subsidy navigation.
+                  Join 50+ households across J&amp;K. We're your trusted partner for engineering excellence and subsidy navigation.
                 </p>
                 <button
                   onClick={() => navigate("/contact")}

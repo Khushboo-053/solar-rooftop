@@ -45,7 +45,7 @@ const Contact = () => {
   const channels = [
     { icon: "call", label: "For Phone Calls", value: "08069069661", bg: "bg-surface-container", iconColor: "text-on-surface" },
     { icon: "chat", label: "WhatsApp Messages", value: "+91 9596333224", bg: "bg-tertiary-container/40", iconColor: "text-tertiary", cta: "Chat Now" },
-    { icon: "mail", label: "Email Us", value: "info@solarisradiant.in", bg: "bg-surface-container", iconColor: "text-on-surface" },
+    { icon: "mail", label: "Email Us", value: "info@karsaaz.in", bg: "bg-surface-container", iconColor: "text-on-surface" },
   ];
 
   return (

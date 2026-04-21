@@ -23,7 +23,7 @@ const Index = () => {
                 Cut Your Electricity Bills by <span className="text-primary italic">Up to 80%</span> with Solar
               </h1>
               <p className="text-xl text-secondary max-w-xl mb-10 leading-relaxed">
-                Transition to high-efficiency solar energy with Solaris. Our expert installation team ensures your home reaches its peak radiant potential.
+                Transition to high-efficiency solar energy with Karsaaz. Our expert installation team ensures your home reaches its peak radiant potential.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -67,7 +67,7 @@ const Index = () => {
         <section className="py-32 bg-surface-container-low">
           <div className="max-w-7xl mx-auto px-8">
             <div className="mb-20 max-w-2xl">
-              <h2 className="font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Why Choose Solaris?</h2>
+              <h2 className="font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Why Choose Karsaaz?</h2>
               <div className="h-2 w-24 bg-primary rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -113,9 +113,9 @@ const Index = () => {
             <h2 className="font-headline text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-20">What Our Customers Say</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { name: "Marcus Thorne", role: "Homeowner in Austin, TX", quote: "The transition was seamless. Solaris handled the subsidy paperwork and the installation was finished in two days. Our bill has dropped by nearly 75%." },
-                { name: "Elena Rodriguez", role: "Architectural Designer", quote: "Expert installation is an understatement. The crew was professional, clean, and the technology they installed is top-tier. Highly recommend Solaris for any high-end residential project." },
-                { name: "Samuel Chen", role: "Tech Executive", quote: "What impressed me most was the transparent communication. They didn't just sell me panels; they engineered a custom solution for my family's energy needs." },
+                { name: "Ab Rashid", role: "Residential Customer, J&K", quote: "I recently got my residential solar system installed through Karsaaz under the PM Surya Ghar Scheme, and the experience was excellent. The team was very professional, guided me through the subsidy process, and completed the installation on time. My electricity bills have already reduced significantly. Highly recommended!" },
+                { name: "Mohammad Ayoub", role: "Residential Customer, J&K", quote: "Karsaaz made switching to solar very easy for me. From documentation to installation, everything was handled smoothly under the PM Surya Ghar Scheme. The staff was cooperative and explained everything clearly. I'm very satisfied with their service and the system performance." },
+                { name: "Javid Ahmad", role: "Residential Customer, J&K", quote: "Great service by Karsaaz! I was initially confused about the PM Surya Ghar Scheme, but their team guided me step-by-step. The installation was quick and neat, and now I'm saving a lot on electricity bills. Truly a reliable solar company for residential projects." },
               ].map((t, i) => (
                 <div key={i} className="bg-card p-8 rounded-3xl shadow-sm">
                   <div className="flex items-center gap-1 mb-6">
@@ -148,7 +148,7 @@ const Index = () => {
               <div className="relative z-10">
                 <h2 className="text-4xl md:text-5xl font-headline font-black text-primary-foreground mb-8">Ready to harness the sun?</h2>
                 <p className="text-primary-foreground/80 text-lg mb-12 max-w-2xl mx-auto">
-                  Join over 12,000 households engineering a cleaner, cheaper future with Solaris Radiant Authority.
+                  Join 50+ households engineering a cleaner, cheaper future with Karsaaz across J&amp;K.
                 </p>
                 <button
                   onClick={() => navigate("/contact")}
