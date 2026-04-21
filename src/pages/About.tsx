@@ -5,10 +5,10 @@ import philosophyImg from "@/assets/about-philosophy.jpg";
 import j2018 from "@/assets/journey-2018.jpg";
 
 const credentials = [
-  { num: "100+", label: "Installations Completed" },
-  { num: "20", label: "Districts Served Across J&K" },
-  { num: "400 kW+", label: "Total Capacity Installed" },
-  { num: "25 Year", label: "Performance Warranty" },
+  { num: "50+", label: "Installations Completed" },
+  { num: "10+", label: "Districts Served Across J&K" },
+  { num: "200 kW+", label: "Total Capacity Installed" },
+  { num: "10+ Years", label: "Performance Warranty" },
 ];
 
 const About = () => (
@@ -19,7 +19,7 @@ const About = () => (
       <section className="px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32">
         <div className="lg:col-span-7">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-container/30 mb-6">
-            <span className="text-primary font-label text-xs font-bold uppercase tracking-widest">About Solaris</span>
+            <span className="text-primary font-label text-xs font-bold uppercase tracking-widest">About Karsaaz</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-on-surface tracking-tighter leading-[0.95]">
             Designed for Kashmir.<br />
@@ -40,7 +40,7 @@ const About = () => (
             />
           </div>
           <div className="absolute -bottom-8 -left-6 bg-card rounded-2xl shadow-xl px-6 py-4">
-            <div className="text-3xl font-headline font-extrabold text-on-surface">400 kW+</div>
+            <div className="text-3xl font-headline font-extrabold text-on-surface">200 kW+</div>
             <div className="text-xs uppercase tracking-widest text-muted-foreground font-label font-bold mt-1">Installed in J&K</div>
           </div>
         </div>
@@ -127,8 +127,8 @@ const About = () => (
             <Link to="/contact" className="bg-on-surface text-surface px-8 py-4 rounded-full font-headline font-bold hover:opacity-90 transition-opacity">
               Book a Free Consultation
             </Link>
-            <Link to="/gallery" className="bg-card/50 text-on-surface px-8 py-4 rounded-full font-headline font-bold hover:bg-card transition-colors">
-              See Our Installations
+            <Link to="/services" className="bg-card/50 text-on-surface px-8 py-4 rounded-full font-headline font-bold hover:bg-card transition-colors">
+              Explore Our Services
             </Link>
           </div>
         </div>
