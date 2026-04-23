@@ -1,7 +1,15 @@
-import { useMemo, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import { useAppData } from "@/context/AppDataContext";
 import type { BlogPost } from "@/data/blogPosts";
+import { hasSupabaseConfig, supabase } from "@/lib/supabase";
+
+type SolarRequest = {
+  id: number;
+  name: string;
+  phone: string;
+  created_at: string;
+};
 
 type FormState = {
   slug: string;
@@ -27,14 +35,58 @@ const emptyForm: FormState = {
   content: "",
 };
 
-const Dashboard = () => {
+type DashboardProps = {
+  section: "blogs" | "leads";
+};
+
+const Dashboard = ({ section }: DashboardProps) => {
   const { isAdminAuthenticated, blogPosts, createBlog, updateBlog, deleteBlog, logout } = useAppData();
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [form, setForm] = useState<FormState>(emptyForm);
+  const [requests, setRequests] = useState<SolarRequest[]>([]);
+  const [requestsLoading, setRequestsLoading] = useState(true);
 
   if (!isAdminAuthenticated) return <Navigate to="/admin/login" replace />;
 
   const sortedPosts = useMemo(() => [...blogPosts], [blogPosts]);
+  const sortedRequests = useMemo(
+    () => [...requests].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
+    [requests],
+  );
+
+  useEffect(() => {
+    const loadRequests = async () => {
+      if (!hasSupabaseConfig || !supabase) {
+        setRequestsLoading(false);
+        return;
+      }
+      const { data } = await supabase
+        .from("solar_requests")
+        .select("id,name,phone,created_at")
+        .order("created_at", { ascending: false });
+      if (data) setRequests(data as SolarRequest[]);
+      setRequestsLoading(false);
+    };
+
+    loadRequests();
+
+    if (!hasSupabaseConfig || !supabase) return;
+
+    const channel = supabase
+      .channel("solar-requests-realtime")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "solar_requests" },
+        (payload) => {
+          setRequests((prev) => [payload.new as SolarRequest, ...prev]);
+        },
+      )
+      .subscribe();
+
+    return () => {
+      void supabase.removeChannel(channel);
+    };
+  }, []);
 
   const populateForm = (post: BlogPost) => {
     const content = post.sections.flatMap((s) => s.paragraphs ?? []).join("\n");
@@ -80,18 +132,86 @@ const Dashboard = () => {
 
   return (
     <main className="min-h-screen bg-surface px-6 py-10">
-      <div className="max-w-7xl mx-auto space-y-8">
-        <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <h1 className="text-4xl font-headline font-extrabold">Admin Dashboard</h1>
-            <p className="text-secondary mt-1">Manage blog posts (create, update, delete).</p>
-          </div>
-          <button onClick={logout} className="bg-on-surface text-surface px-5 py-2.5 rounded-lg font-bold">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-8">
+        <aside className="bg-card rounded-3xl shadow-sm p-5 h-fit">
+          <h2 className="font-headline font-extrabold text-xl mb-5">Admin Panel</h2>
+          <nav className="space-y-2">
+            <Link
+              to="/admin/dashboard/blogs"
+              className={`block px-4 py-3 rounded-xl font-bold transition ${
+                section === "blogs"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-surface-container-low text-on-surface hover:bg-surface-container"
+              }`}
+            >
+              Blogs
+            </Link>
+            <Link
+              to="/admin/dashboard/leads"
+              className={`block px-4 py-3 rounded-xl font-bold transition ${
+                section === "leads"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-surface-container-low text-on-surface hover:bg-surface-container"
+              }`}
+            >
+              Contact Leads
+            </Link>
+          </nav>
+          <button onClick={logout} className="mt-6 w-full bg-on-surface text-surface px-5 py-2.5 rounded-lg font-bold">
             Logout
           </button>
+        </aside>
+
+        <div className="space-y-8">
+        <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-4xl font-headline font-extrabold">
+              {section === "blogs" ? "Blogs" : "Contact Leads"}
+            </h1>
+            <p className="text-secondary mt-1">
+              {section === "blogs" ? "Manage blog posts (create, update, delete)." : "View all consultation requests from users."}
+            </p>
+          </div>
         </header>
 
-        <section className="bg-card rounded-3xl shadow-sm p-6 md:p-8">
+        {section === "leads" && (
+          <section className="bg-card rounded-3xl shadow-sm p-6 md:p-8">
+          <h2 className="text-2xl font-headline font-bold mb-6">Solar Consultation Requests</h2>
+          {!hasSupabaseConfig ? (
+            <p className="text-secondary">Supabase is not configured for this environment.</p>
+          ) : requestsLoading ? (
+            <p className="text-secondary">Loading requests...</p>
+          ) : (
+            <div className="overflow-auto">
+              <table className="w-full min-w-[640px] text-sm">
+                <thead>
+                  <tr className="text-left border-b border-outline-variant/30">
+                    <th className="py-3 pr-4 font-bold">ID</th>
+                    <th className="py-3 pr-4 font-bold">Name</th>
+                    <th className="py-3 pr-4 font-bold">Phone</th>
+                    <th className="py-3 pr-4 font-bold">Submitted At</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sortedRequests.map((req) => (
+                    <tr key={req.id} className="border-b border-outline-variant/20">
+                      <td className="py-3 pr-4">{req.id}</td>
+                      <td className="py-3 pr-4">{req.name}</td>
+                      <td className="py-3 pr-4">{req.phone}</td>
+                      <td className="py-3 pr-4">{new Date(req.created_at).toLocaleString()}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              {sortedRequests.length === 0 ? <p className="text-secondary pt-4">No requests yet.</p> : null}
+            </div>
+          )}
+          </section>
+        )}
+
+        {section === "blogs" && (
+          <>
+            <section className="bg-card rounded-3xl shadow-sm p-6 md:p-8">
           <h2 className="text-2xl font-headline font-bold mb-6">{editingSlug ? "Update Blog" : "Create Blog"}</h2>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {(
@@ -159,9 +279,9 @@ const Dashboard = () => {
               )}
             </div>
           </form>
-        </section>
+            </section>
 
-        <section className="bg-card rounded-3xl shadow-sm p-6 md:p-8">
+            <section className="bg-card rounded-3xl shadow-sm p-6 md:p-8">
           <h2 className="text-2xl font-headline font-bold mb-6">All Blogs</h2>
           <div className="space-y-4">
             {sortedPosts.map((post) => (
@@ -186,7 +306,10 @@ const Dashboard = () => {
               </article>
             ))}
           </div>
-        </section>
+            </section>
+          </>
+        )}
+        </div>
       </div>
     </main>
   );

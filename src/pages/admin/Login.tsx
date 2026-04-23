@@ -9,7 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  if (isAdminAuthenticated) return <Navigate to="/admin/dashboard" replace />;
+  if (isAdminAuthenticated) return <Navigate to="/admin/dashboard/blogs" replace />;
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const Login = () => {
       setError("Invalid credentials. Use admin / admin123");
       return;
     }
-    navigate("/admin/dashboard");
+    navigate("/admin/dashboard/blogs");
   };
 
   return (

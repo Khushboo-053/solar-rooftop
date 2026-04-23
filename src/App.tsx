@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -36,7 +36,9 @@ const App = () => (
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/:slug" element={<BlogPost />} />
           <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/dashboard" element={<Navigate to="/admin/dashboard/blogs" replace />} />
+          <Route path="/admin/dashboard/blogs" element={<AdminDashboard section="blogs" />} />
+          <Route path="/admin/dashboard/leads" element={<AdminDashboard section="leads" />} />
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

@@ -3,6 +3,7 @@ import { z } from "zod";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "@/hooks/use-toast";
+import { hasSupabaseConfig, supabase } from "@/lib/supabase";
 
 const contactSchema = z.object({
   name: z
@@ -20,8 +21,9 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = contactSchema.safeParse({ name, phone });
     if (!result.success) {
@@ -34,6 +36,30 @@ const Contact = () => {
       return;
     }
     setErrors({});
+
+    if (!hasSupabaseConfig || !supabase) {
+      toast({
+        title: "Setup incomplete",
+        description: "Supabase configuration is missing. Please configure environment variables.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    const { error } = await supabase.from("solar_requests").insert({
+      name: name.trim(),
+      phone: phone.trim(),
+    });
+    setIsSubmitting(false);
+
+    if (error) {
+      toast({
+        title: "Submission failed",
+        description: "Could not save your request right now. Please try again.",
+      });
+      return;
+    }
+
     toast({
       title: "Consultation requested",
       description: "Our solar expert will reach out to you shortly.",
@@ -141,9 +167,10 @@ const Contact = () => {
 
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-inverse-surface text-inverse-on-surface py-5 rounded-2xl font-headline font-bold text-base hover:opacity-90 transition-all flex items-center justify-center gap-2"
               >
-                Done
+                {isSubmitting ? "Submitting..." : "Done"}
                 <span className="material-symbols-outlined">arrow_forward</span>
               </button>
             </form>
